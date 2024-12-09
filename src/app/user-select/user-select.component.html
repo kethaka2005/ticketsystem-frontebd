@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Select Type</h2>
+  <div class="options">
+    <label class="radio-option">
+      <input
+        type="radio"
+        name="userType"
+        [(ngModel)]="selectedOption"
+        value="Vendor"
+        (change)="navigateBasedOnRole()"
+      />
+      <span class="radio-label">Vendor</span>
+    </label>
+    <label class="radio-option">
+      <input
+        type="radio"
+        name="userType"
+        [(ngModel)]="selectedOption"
+        value="Customer"
+        (change)="navigateBasedOnRole()"
+      />
+      <span class="radio-label">Customer</span>
+    </label>
+  </div>
+  <div class="selection-result">
+    <p *ngIf="selectedOption">
+      You selected: <strong>{{ selectedOption }}</strong>
+    </p>
+  </div>
+</div>

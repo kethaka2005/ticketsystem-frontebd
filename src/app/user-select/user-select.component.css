@@ -1,0 +1,65 @@
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .container h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .options {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  .radio-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  .radio-option:hover {
+    transform: scale(1.05);
+  }
+  
+  .radio-option input[type="radio"] {
+    display: none; /* Hide the default radio button */
+  }
+  
+  .radio-option .radio-label {
+    font-size: 1.2rem;
+    color: #555;
+    background: #e0e0e0;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    transition: background 0.3s, border 0.3s, color 0.3s;
+  }
+  
+  .radio-option input[type="radio"]:checked + .radio-label {
+    background: red; /* Background turns red when selected */
+    color: #fff;
+    border: 2px solid #b20000; /* Border turns dark red */
+  }
+  
+  .selection-result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .selection-result strong {
+    color: red; /* Color for the selected option */
+  }
+  
