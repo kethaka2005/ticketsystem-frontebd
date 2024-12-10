@@ -11,16 +11,16 @@ import { Router, RouterModule } from '@angular/router';
   styleUrls: ['./user-select.component.css'],
 })
 export class UserSelectComponent {
-  selectedOption: string = ''; // Variable to store user selection
-
   constructor(private router: Router) {}
 
-  navigateBasedOnRole(): void {
-    console.log('Selected Option:', this.selectedOption); // Debugging log
-    if (this.selectedOption === 'Vendor') {
-      this.router.navigate(['/login-customer']); // Navigate to the login-customer component
-    } else if (this.selectedOption === 'Customer') {
-      this.router.navigate(['/login-vendor']); // Navigate to the login-vendor component
+  navigateBasedOnRole(user: string): void {
+    console.log('Selected Option:', user); // Debugging log
+
+    // Use the same route for both roles since "login" is a shared component
+    if (user === 'Vendor' || user === 'Customer') {
+      this.router.navigate(['/login'], {
+        queryParams: { role: user }, // Pass the role as a query parameter
+      });
     } else {
       alert('Please select a role to proceed.');
     }

@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="form-container">
+      <div class="form-title">Customer Ticket Form</div>
+      <div class="form-content">
+        <form (ngSubmit)="submitForm()">
+          <!-- Event Selection -->
+          <div class="form-group">
+            <label for="event">Select Event:</label>
+            <select
+              id="event"
+              name="event"
+              [(ngModel)]="customer.selectedEvent"
+              (change)="updateMaxTickets()"
+              class="form-input"
+              required
+            >
+              <option value="" disabled>Select an event</option>
+              <option value="Event 1">Event 1</option>
+              <option value="Event 2">Event 2</option>
+            </select>
+          </div>
+          <!-- Max Tickets -->
+          <div class="form-group">
+            <label>Maximum Tickets Available:</label>
+            <div class="info-box">{{ maxTickets || 'Please select an event' }}</div>
+          </div>
+          <!-- Tickets Input -->
+          <div class="form-group">
+            <label for="tickets">Number of Tickets:</label>
+            <input
+              id="tickets"
+              name="tickets"
+              [(ngModel)]="customer.tickets"
+              type="number"
+              class="form-input"
+              placeholder="Enter number of tickets"
+              [max]="maxTickets"
+              [min]="1"
+              required
+            />
+          </div>
+          <!-- Submit Button -->
+          <div>
+            <button type="submit" class="submit-button">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

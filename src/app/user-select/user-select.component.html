@@ -5,9 +5,8 @@
       <input
         type="radio"
         name="userType"
-        [(ngModel)]="selectedOption"
         value="Vendor"
-        (change)="navigateBasedOnRole()"
+        (click)="navigateBasedOnRole('Vendor')"
       />
       <span class="radio-label">Vendor</span>
     </label>
@@ -15,16 +14,10 @@
       <input
         type="radio"
         name="userType"
-        [(ngModel)]="selectedOption"
         value="Customer"
-        (change)="navigateBasedOnRole()"
+        (click)="navigateBasedOnRole('Customer')"
       />
       <span class="radio-label">Customer</span>
     </label>
-  </div>
-  <div class="selection-result">
-    <p *ngIf="selectedOption">
-      You selected: <strong>{{ selectedOption }}</strong>
-    </p>
   </div>
 </div>

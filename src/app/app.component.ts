@@ -1,15 +1,18 @@
 import { CommonModule } from "@angular/common";
 import { Component, OnInit, signal, HostListener } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { ConfigurationComponent } from "./configuration/configuration.component";
 import { ControPanelComponent } from "./contro-panel/contro-panel.component"; 
 import { DashboardComponent } from "./dashboard/dashboard.component"; 
 import { HomeComponent } from "./home/home.component"; 
 import { LeftSidebarComponent } from "./left-sidebar/left-sidebar.component"; 
-import { LoginCustomerComponent } from "./login-customer/login-customer.component"; 
+import { LoginCustomerComponent } from "./login/login.component"; 
 import { MainComponent } from "./main/main.component";  
 import { UserSelectComponent } from "./user-select/user-select.component"; 
+import { BrowserModule } from "@angular/platform-browser";
+
+
 
 
 @Component({
@@ -18,15 +21,11 @@ import { UserSelectComponent } from "./user-select/user-select.component";
   imports: [
     LeftSidebarComponent,
     MainComponent,
-    ConfigurationComponent,
-    ControPanelComponent,
-    DashboardComponent,
-    HomeComponent,
-    LoginCustomerComponent,
-    UserSelectComponent,
     FormsModule,
     RouterModule,
     CommonModule,
+    ReactiveFormsModule,
+
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'], // Fixed typo
