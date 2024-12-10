@@ -1,0 +1,52 @@
+/* General Container */
+.container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Event Display Section */
+  .events-container {
+    margin-top: 20px;
+  }
+  
+  .event-card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .event-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+  
+  .event-details h3 {
+    margin: 0;
+  }
+  
+  .event-details p {
+    margin: 5px 0;
+  }
+  
+  .buy-button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .buy-button:hover {
+    background-color: #218838;
+  }
+  

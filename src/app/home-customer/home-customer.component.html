@@ -1,0 +1,17 @@
+<div class="container">
+    <!-- Event Display Section -->
+    <div class="events-container">
+      <h2>Available Events</h2>
+      <div class="event-card" *ngFor="let event of events">
+        <img [src]="event.imageUrl" alt="Event Image" class="event-image" />
+        <div class="event-details">
+          <h3>{{ event.eventName }}</h3>
+          <p><strong>Location:</strong> {{ event.eventLocation }}</p>
+          <p><strong>Price:</strong> ${{ event.eventPrice }}</p>
+          <p><strong>Max Tickets:</strong> {{ event.maxTicketCapacity }}</p>
+          <button (click)="buyTicket(event)" class="buy-button">Buy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

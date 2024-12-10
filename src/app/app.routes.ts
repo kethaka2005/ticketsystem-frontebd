@@ -8,16 +8,16 @@ import { HomeComponent } from './home/home.component';
 import { LoginCustomerComponent } from './login/login.component';
 
 import { UserSelectComponent } from './user-select/user-select.component';
+import { HomeCustomerComponent } from './home-customer/home-customer.component';
 
 
 export const routes: Routes = [
     {path:'',redirectTo:'user-select',pathMatch:'full'},
     {path:'user-select',component:UserSelectComponent},
-    {path:'Login-customer',component:LoginCustomerComponent},
-    {path:'control',component:ControPanelComponent},
-    {path:'dashboard',component:DashboardComponent},
-    {path:'home',component:HomeComponent},
     {path:'login',component:LoginCustomerComponent},
+    {path:'home-vendor',component:HomeComponent},
+    {path:'home-customer',component: HomeCustomerComponent},
+  
     
     {path:'user-select',component:UserSelectComponent}
     

@@ -4,7 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { LoginRequest } from '../model/login-request';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-customer',
@@ -20,7 +20,8 @@ export class LoginCustomerComponent implements OnInit {
 
   constructor(
     private integration: IntegrationService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router:Router
   ) {
     // Initialize the `userForm` in the constructor.
     this.userForm = new FormGroup({
@@ -36,30 +37,48 @@ export class LoginCustomerComponent implements OnInit {
     // Retrieve the role from query parameters.
     this.role = this.route.snapshot.queryParamMap.get('role');
     console.log('Role:', this.role); // Debugging log
+    console.log(this.userForm);
+    
   }
 
-  dologin() {
-    const formValue = this.userForm.value;
+  // dologin() {
+  //   const formValue = this.userForm.value;
 
-    // Validate credentials.
-    if (formValue.username === '' || formValue.password === '') {
-      alert('Wrong credentials');
-      return;
-    }
+  //   // Validate credentials.
+  //   if (formValue.username === '' || formValue.password === '') {
+  //     alert('Wrong credentials');
+  //     return;
+  //   }
 
-    // Set `LoginRequest` properties.
-    this.request.username = formValue.username;
-    this.request.password = formValue.password;
+  //   // Set `LoginRequest` properties.
+  //   this.request.username = formValue.username;
+  //   this.request.password = formValue.password;
 
-    // Call the login service.
-    this.integration.doLogin(this.request).subscribe({
-      next: (res) => {
-        console.log('Received response: ' + res.token);
-        alert(`Login successful as ${this.role}`);
-      },
-      error: (err) => {
-        console.log('Error received: ' + err);
-      },
-    });
+  //   // Call the login service.
+  //   // this.integration.doLogin(this.request).subscribe({
+  //   //   next: (res) => {
+  //   //     console.log('Received response: ' + res.token);
+  //   //     alert(`Login successful as ${this.role}`);
+
+  //   //     // Navigate to the appropriate home component based on role.
+  //   //     if (this.role === 'vendor') {
+  //   //       this.router.navigate(['/home-vendor']);
+  //   //     } else if (this.role === 'customer') {
+  //   //       this.router.navigate(['/home-customer']);
+  //   //     } else {
+  //   //       alert('Role is not defined. Cannot proceed.');
+  //   //     }
+  //   //   }
+  //   // });
+  // }
+  dologin(){
+    
+    if (this.role === 'Vendor') {
+      this.router.navigate(['/home-vendor']);
+      } else if (this.role === 'Customer') {
+        this.router.navigate(['/home-customer']);
+      } else {
+        alert('Role is not defined. Cannot proceed.');
+      }
   }
 }
