@@ -1,17 +1,56 @@
 <div class="container">
-    <!-- Event Display Section -->
-    <div class="events-container">
-      <h2>Available Events</h2>
-      <div class="event-card" *ngFor="let event of events">
-        <img [src]="event.imageUrl" alt="Event Image" class="event-image" />
-        <div class="event-details">
-          <h3>{{ event.eventName }}</h3>
-          <p><strong>Location:</strong> {{ event.eventLocation }}</p>
-          <p><strong>Price:</strong> ${{ event.eventPrice }}</p>
-          <p><strong>Max Tickets:</strong> {{ event.maxTicketCapacity }}</p>
-          <button (click)="buyTicket(event)" class="buy-button">Buy</button>
-        </div>
+  <!-- Event Display Section -->
+  <div class="events-container">
+    <h2>Available Events</h2>
+    <div class="event-card" *ngFor="let event of events">
+      <img [src]="event.imageUrl" alt="Event Image" class="event-image" />
+      <div class="event-details">
+        <h3>{{ event.eventName }}</h3>
+        <p><strong>Location:</strong> {{ event.eventLocation }}</p>
+        <p><strong>Price:</strong> ${{ event.eventPrice }}</p>
+        <p><strong>Total Capacity:</strong> {{ event.maxTicketCapacity }}</p>
+        <p><strong>Early Bird:</strong> {{ event.earlyBirdCapacity }} tickets available</p>
+        <p><strong>General:</strong> {{ event.generalCapacity }} tickets available</p>
+        <p><strong>Last Minute:</strong> {{ event.lastMinuteCapacity }} tickets available</p>
+
+        <!-- Early Bird Tickets -->
+        <label for="earlyBirdQuantity-{{ event.eventName }}">Early Bird Tickets:</label>
+        <input
+          id="earlyBirdQuantity-{{ event.eventName }}"
+          type="number"
+          min="0"
+          [max]="event.earlyBirdCapacity"
+          [(ngModel)]="event.selectedEarlyBird"
+          class="ticket-quantity-input"
+        />
+
+        <!-- General Tickets -->
+        <label for="generalQuantity-{{ event.eventName }}">General Tickets:</label>
+        <input
+          id="generalQuantity-{{ event.eventName }}"
+          type="number"
+          min="0"
+          [max]="event.generalCapacity"
+          [(ngModel)]="event.selectedGeneral"
+          class="ticket-quantity-input"
+        />
+
+        <!-- Last Minute Tickets -->
+        <label for="lastMinuteQuantity-{{ event.eventName }}">Last Minute Tickets:</label>
+        <input
+          id="lastMinuteQuantity-{{ event.eventName }}"
+          type="number"
+          min="0"
+          [max]="event.lastMinuteCapacity"
+          [(ngModel)]="event.selectedLastMinute"
+          class="ticket-quantity-input"
+        />
+
+        <!-- Buy Button -->
+        <button (click)="buyTickets(event)" class="buy-button">
+          Buy
+        </button>
       </div>
     </div>
   </div>
-  
+</div>

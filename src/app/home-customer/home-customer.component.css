@@ -49,4 +49,27 @@
   .buy-button:hover {
     background-color: #218838;
   }
+  .ticket-quantity-input {
+    width: 50px;
+    margin: 5px 0;
+    padding: 5px;
+  }
+  
+.ticket-quantity-input {
+  width: 60px;
+  margin: 5px 0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.ticket-quantity-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.buy-button {
+  margin-top: 10px;
+}
+
   

@@ -1,69 +1,93 @@
 <div class="container">
-    <!-- Form Section -->
-    <div class="form-container">
-      <h2>Create Event</h2>
-      <form [formGroup]="eventForm" (ngSubmit)="createEvent()">
-        <!-- Event Name -->
-        <div class="form-group">
-          <label for="eventName">Event Name:</label>
-          <input
-            id="eventName"
-            formControlName="eventName"
-            type="text"
-            placeholder="Enter event name"
-          />
-        </div>
-  
-        <!-- Event Location -->
-        <div class="form-group">
-          <label for="eventLocation">Event Location:</label>
-          <input
-            id="eventLocation"
-            formControlName="eventLocation"
-            type="text"
-            placeholder="Enter event location"
-          />
-        </div>
-  
-        <!-- Event Price -->
-        <div class="form-group">
-          <label for="eventPrice">Event Price:</label>
-          <input
-            id="eventPrice"
-            formControlName="eventPrice"
-            type="number"
-            placeholder="Enter event price"
-          />
-        </div>
-  
-        <!-- Max Ticket Capacity -->
-        <div class="form-group">
-          <label for="maxTicketCapacity">Max Ticket Capacity:</label>
-          <input
-            id="maxTicketCapacity"
-            formControlName="maxTicketCapacity"
-            type="number"
-            placeholder="Enter max ticket capacity"
-          />
-        </div>
-  
-        <!-- Submit Button -->
-        <button type="submit">Create Event</button>
-      </form>
-    </div>
-  
-    <!-- Event Display Section -->
-    <div class="events-container">
-      <h2>Created Events</h2>
-      <div class="event-card" *ngFor="let event of createdEvents">
-        <img [src]="event.imageUrl" alt="Event Image" class="event-image" />
-        <div class="event-details">
-          <h3>{{ event.eventName }}</h3>
-          <p><strong>Location:</strong> {{ event.eventLocation }}</p>
-          <p><strong>Price:</strong> ${{ event.eventPrice }}</p>
-          <p><strong>Max Tickets:</strong> {{ event.maxTicketCapacity }}</p>
-        </div>
+  <!-- Form Section -->
+  <div class="form-container">
+    <h2>Create Event</h2>
+    <form [formGroup]="eventForm" (ngSubmit)="createEvent()">
+      <!-- Event Name -->
+      <div class="form-group">
+        <label for="eventName">Event Name:</label>
+        <input
+          id="eventName"
+          formControlName="eventName"
+          type="text"
+          placeholder="Enter event name"
+        />
+      </div>
+
+      <!-- Event Location -->
+      <div class="form-group">
+        <label for="eventLocation">Event Location:</label>
+        <input
+          id="eventLocation"
+          formControlName="eventLocation"
+          type="text"
+          placeholder="Enter event location"
+        />
+      </div>
+
+      <!-- Event Price -->
+      <div class="form-group">
+        <label for="eventPrice">Event Price:</label>
+        <input
+          id="eventPrice"
+          formControlName="eventPrice"
+          type="number"
+          placeholder="Enter event price"
+        />
+      </div>
+
+      <!-- Early Bird Ticket Capacity -->
+      <div class="form-group">
+        <label for="earlyBirdCapacity">Early Bird Capacity:</label>
+        <input
+          id="earlyBirdCapacity"
+          formControlName="earlyBirdCapacity"
+          type="number"
+          placeholder="Enter early bird ticket capacity"
+        />
+      </div>
+
+      <!-- General Ticket Capacity -->
+      <div class="form-group">
+        <label for="generalCapacity">General Capacity:</label>
+        <input
+          id="generalCapacity"
+          formControlName="generalCapacity"
+          type="number"
+          placeholder="Enter general ticket capacity"
+        />
+      </div>
+
+      <!-- Last Minute Ticket Capacity -->
+      <div class="form-group">
+        <label for="lastMinuteCapacity">Last Minute Capacity:</label>
+        <input
+          id="lastMinuteCapacity"
+          formControlName="lastMinuteCapacity"
+          type="number"
+          placeholder="Enter last minute ticket capacity"
+        />
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit">Create Event</button>
+    </form>
+  </div>
+
+  <!-- Event Display Section -->
+  <div class="events-container">
+    <h2>Created Events</h2>
+    <div class="event-card" *ngFor="let event of createdEvents">
+      <img [src]="event.imageUrl" alt="Event Image" class="event-image" />
+      <div class="event-details">
+        <h3>{{ event.eventName }}</h3>
+        <p><strong>Location:</strong> {{ event.eventLocation }}</p>
+        <p><strong>Price:</strong> ${{ event.eventPrice }}</p>
+        <p><strong>Early Bird Capacity:</strong> {{ event.earlyBirdCapacity }}</p>
+        <p><strong>General Capacity:</strong> {{ event.generalCapacity }}</p>
+        <p><strong>Last Minute Capacity:</strong> {{ event.lastMinuteCapacity }}</p>
+        <p><strong>Total Capacity:</strong> {{ event.totalCapacity }}</p>
       </div>
     </div>
   </div>
-  
+</div>

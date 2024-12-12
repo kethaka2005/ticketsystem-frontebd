@@ -16,7 +16,7 @@ import { ActivatedRoute,Router } from '@angular/router';
 export class LoginCustomerComponent implements OnInit {
   userForm: FormGroup;
   request: LoginRequest; 
-  role: string | null = null; // Role passed via query parameter
+  role: string | null = null; 
 
   constructor(
     private integration: IntegrationService,
