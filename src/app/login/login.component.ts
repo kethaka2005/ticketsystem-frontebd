@@ -17,9 +17,10 @@ export class LoginCustomerComponent implements OnInit {
   userForm: FormGroup;
   request: LoginRequest; 
   role: string | null = null; 
+  sendDetails = {};
 
   constructor(
-    private integration: IntegrationService,
+    private userService: IntegrationService,
     private route: ActivatedRoute,
     private router:Router
   ) {
@@ -72,8 +73,10 @@ export class LoginCustomerComponent implements OnInit {
   //   // });
   // }
   dologin(){
-    
+  
     if (this.role === 'Vendor') {
+      this.sendDetails = this.userForm.value;
+      this.userService.doLogin(this.role, this.sendDetails)
       this.router.navigate(['/home-vendor']);
       } else if (this.role === 'Customer') {
         this.router.navigate(['/home-customer']);
